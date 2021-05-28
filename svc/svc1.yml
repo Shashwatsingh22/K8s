@@ -1,0 +1,15 @@
+apiVersion : v1
+kind : Service
+metadata :
+   name : firstsvc
+
+spec :
+        #If we wants to expose this LB svc to world then we need to use the type --> NodePort
+        type : NodePort
+        ports :
+                - targetPort : 80
+                  port: 80
+                  #Here We need to give the Node Port No
+                  nodePort : 8080          
+        selector :
+                app : web
